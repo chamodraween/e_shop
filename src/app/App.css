@@ -1,0 +1,36 @@
+.buy_btn{
+    background-color: #0f75bc !important;
+}
+.text_color{
+    color: #0f75bc !important;
+}
+.show_text{
+    padding: 2px;
+    justify-content: center;
+    color: rgb(67 63 63 / 87%);
+    font-size: 14px;
+}
+/* In a CSS file */
+.show-more-button {
+    color: #0f75bc;
+}
+
+.show-less-button {
+    color: red;
+}
+/* AdminCard.css */
+.aspect-ratio-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 75%;
+    overflow: hidden;
+}
+
+.aspect-ratio-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
