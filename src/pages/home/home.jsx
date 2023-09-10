@@ -11,6 +11,7 @@ import BookmarkAdd from '@mui/icons-material/BookmarkAddOutlined';
 import BasicCard from "./basicCcard.jsx";
 import Stack from '@mui/material/Stack';
 import LinearProgressThickness from "../../common/Thickness/Thickness.jsx";
+import TawToChat from "../contact/TawkToChat.jsx";
 function Home() {
     const [data, setData] = useState([]);
 
@@ -45,6 +46,7 @@ function Home() {
                     ))
                 }
             </Stack>
+            <TawToChat/>
 
         </div>
     );

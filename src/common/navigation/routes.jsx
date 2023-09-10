@@ -1,14 +1,15 @@
 import Home from "../../pages/home/home.jsx";
-import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
 import Admin from "../../pages/admin/admin.jsx";
 import HomeIcon from '@mui/icons-material/Home';
-import Dashboard from "../../pages/dashboard/dashboard.jsx";
 import OrderPage from "../../pages/admin/order.jsx";
-/*import PeopleAltIcon from '@mui/icons-material/PeopleAlt';*/
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import StarBorderPurple500Icon from '@mui/icons-material/StarBorderPurple500';
-import Login from "../LoginComponent/Login.jsx";
-import LockOpenIcon from '@mui/icons-material/LockOpen';
+import AdminLogin from "../LoginComponent/Login.jsx";
+import About from "../../pages/About/about.jsx";
+import InfoIcon from '@mui/icons-material/Info';
+import Contact from "../../pages/contact/contact.jsx";
+import ContactMailIcon from '@mui/icons-material/ContactMail';
+
 
 
 
@@ -21,22 +22,31 @@ const routes = [
         exact: true,
         component: <Home/>,
         icon: <HomeIcon/>,
+
     },
     {
-        name: "Dashboard",
-        key: 'dashboard',
-        path: '/dashboard',
+        name: "About",
+        key: 'about',
+        path: '/about',
         exact: true,
-        component: <Dashboard/>,
-        icon: <SpaceDashboardIcon/>,
+        component: <About/>,
+        icon: <InfoIcon/>,
+
     },
     {
-        name: "login",
+        name: "Contact",
+        key: 'contact',
+        path: '/contact',
+        exact: true,
+        component: <Contact/>,
+        icon: <ContactMailIcon/>,
+
+    },
+    {
         key: 'login',
-        path: "/login",
+        path: '/login',
         exact: true,
-        component: <Login/>,
-        icon: <LockOpenIcon/>
+        component: <AdminLogin/>,
     },
     {
         name: "admin",
@@ -56,5 +66,6 @@ const routes = [
         icon: <StarBorderPurple500Icon/>,
         requiresAdmin: true, // Require admin authentication
     }
+
 ];
 export default routes;

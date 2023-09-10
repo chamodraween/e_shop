@@ -1,41 +1,64 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-const Login = (onAdminLogin) => {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+import { Button, Container, TextField, Typography } from '@mui/material';
+import {useNavigate} from "react-router-dom";
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Implement your admin authentication logic here
-        if (username === "admin" && password === "adminpassword") {
-            onAdminLogin();
+const AdminLogin = () => {
+    const router = useNavigate()
+
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+
+    const handleLogin = () => {
+        // Replace this with your actual authentication logic
+        if (username === 'admin' && password === 'password') {
+            // If authentication is successful, set the user as admin (you may use a state management solution)
+            // Redirect to the admin dashboard or perform the necessary actions for authentication
+            localStorage.setItem('admin-authenticated', true);
+            router('/admin-dashboard/admin')
+;            // alert('Login Successful');
         } else {
-            // Handle authentication failure
+            setError('Invalid username or password');
+            localStorage.removeItem('admin-authenticated');
         }
     };
 
     return (
-        <div>
-            <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="Username"
+        <Container maxWidth="xs">
+            <Typography variant="h4" align="center" gutterBottom>
+                Admin Login
+            </Typography>
+            <form>
+                <TextField
+                    label="Username"
+                    fullWidth
+                    margin="normal"
+                    variant="outlined"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    required
                 />
-                <input
+                <TextField
+                    label="Password"
+                    fullWidth
+                    margin="normal"
+                    variant="outlined"
                     type="password"
-                    placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    required
                 />
-                <button type="submit">Login</button>
+                {error && <Typography variant="body2" color="error">{error}</Typography>}
+                <Button
+                    variant="contained"
+                    color="primary"
+                    fullWidth
+                    onClick={handleLogin}
+                >
+                    Login
+                </Button>
             </form>
-        </div>
+        </Container>
     );
 };
 
-export default Login;
+export default AdminLogin;

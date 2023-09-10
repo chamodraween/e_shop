@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import Admincard from "../home/admincard.jsx";
 import Stack from "@mui/material/Stack";
 import Textarea from '@mui/joy/Textarea';
+import {Container} from "@mui/material";
 
 
 
@@ -57,6 +58,7 @@ function Dashboard() {
     return (
         <div>
             <h1>Dashboard Page</h1><br/><br/>
+            <Container maxWidth="xs">
             <Box sx={{ minWidth: 275, maxWidth: 500 }}>
                 <Card variant="outlined" sx={{ padding: 2, backgroundColor: '#f8f8f8', border: 'none', boxShadow: '1px 2px 0px 0px rgba(173,173,173,0.38);' }}>
                     <TextField
@@ -89,6 +91,7 @@ function Dashboard() {
                     <Button onClick={postData} variant="contained">Save</Button>
                 </Card>
             </Box>
+            </Container>
             <Box sx={{ minWidth: 275,}}>
             <Stack spacing={{ xs: 1, sm: 2 }} direction="row" useFlexGap flexWrap="wrap">
                 {
@@ -98,6 +101,7 @@ function Dashboard() {
                 }
             </Stack>
             </Box>
+
         </div>
 
     );
