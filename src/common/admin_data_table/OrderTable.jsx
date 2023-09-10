@@ -10,12 +10,12 @@ import axios from 'axios';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-function createData(id,  item_id ,title, price, uname, uaddress, ucity, uzip, deletionDate) {
-    return { id, uname, uaddress, ucity, uzip, deletionDate, title,  item_id, price};
+function createData(id, uname, uaddress, ucity, uzip, deletionDate) {
+    return { id, uname, uaddress, ucity, uzip, deletionDate };
 }
 
 
-function DenseTable() {
+function OrderTable() {
     const [rows, setRows] = useState([]);
 
     useEffect(() => {
@@ -26,14 +26,13 @@ function DenseTable() {
         axios
             .get('http://192.168.8.100:8000/userdata')
             .then(function (response) {
-                console.log("order data: ", response.data)
-                setRows(response.data.map((item) => createData(item.id, item.item_id, item.title, item.price, item.uname, item.uaddress, item.ucity, item.uzip, item.deletionDate )));
+                setRows(response.data.map((item) => createData(item.id, item.uname, item.uaddress, item.ucity, item.uzip)));
             })
             .catch(function (error) {
                 console.log(error);
             });
     };
-console.log('rows',rows)
+
     const handleDelete = (id) => {
         axios
             .delete(`http://192.168.8.100:8000/userdata/${id}`)
@@ -55,10 +54,7 @@ console.log('rows',rows)
             <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
                 <TableHead>
                     <TableRow>
-                        <TableCell>Order Id</TableCell>
-                        <TableCell>Item Id</TableCell>
-                        <TableCell>Item</TableCell>
-                        <TableCell>Price</TableCell>
+                        <TableCell>Id</TableCell>
                         <TableCell>Name</TableCell>
                         <TableCell>Address</TableCell>
                         <TableCell>City</TableCell>
@@ -67,12 +63,9 @@ console.log('rows',rows)
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {rows.map((row, index) => (
+                    {rows.map((row) => (
                         <TableRow key={row.id}>
-                            <TableCell>#{index+1}</TableCell>
-                            <TableCell>{row.item_id}</TableCell>
-                            <TableCell>{row.title}</TableCell>
-                            <TableCell>{row.price}</TableCell>
+                            <TableCell>{row.id}</TableCell>
                             <TableCell>{row.uname}</TableCell>
                             <TableCell>{row.uaddress}</TableCell>
                             <TableCell>{row.ucity}</TableCell>
@@ -98,4 +91,4 @@ console.log('rows',rows)
     );
 }
 
-export default DenseTable;
+export default OrderTable;

@@ -13,7 +13,9 @@ import DraggableDialog from "../../common/Cart/papercomponent.jsx";
 
 
 // eslint-disable-next-line react/prop-types
-function BasicCard ({title, date, img, price,description}) {
+function BasicCard ({item}) {
+
+    const {title, date, img, price,description} = item;
 
     return(
 
@@ -64,7 +66,7 @@ function BasicCard ({title, date, img, price,description}) {
                 </CardContent>
 
                 {/*button*/}
-                <DraggableDialog/>
+                <DraggableDialog item={item}/>
 
             </Card>
         </Grid>

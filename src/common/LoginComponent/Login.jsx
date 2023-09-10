@@ -16,7 +16,7 @@ const AdminLogin = () => {
             // If authentication is successful, set the user as admin (you may use a state management solution)
             // Redirect to the admin dashboard or perform the necessary actions for authentication
             localStorage.setItem('admin-authenticated', true);
-            router('/admin-dashboard/admin')
+            router('/admin')
 ;            // alert('Login Successful');
         } else {
             setError('Invalid username or password');

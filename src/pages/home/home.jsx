@@ -42,7 +42,7 @@ function Home() {
             <Stack spacing={{ xs: 1, sm: 2 }} direction="row" useFlexGap flexWrap="wrap">
                 {
                     data.map((val, index)=> (
-                        <BasicCard key={index} title={val.title} date={val.date} img={val.img} price={val.price} description={val.description}/>
+                        <BasicCard key={index} item={val} />
                     ))
                 }
             </Stack>

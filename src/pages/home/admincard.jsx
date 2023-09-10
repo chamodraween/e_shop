@@ -9,8 +9,9 @@ import ShowMoreText from 'react-show-more-text';
 import DeleteIcon from '@mui/icons-material/Delete';
 import axios from 'axios';
 import "../../app/App.css"
+import {Edit} from "@mui/icons-material";
 
-function AdminCard({ title, date, img, price, id, description, deletionDate, setRows, rows }) {
+function AdminCard({ title, date, img, price, id, description, deletionDate, setRows, onEdit }) {
     const handleDelete = () => {
         axios
             .delete(`http://192.168.8.100:8000/post/${id}`)
@@ -71,6 +72,13 @@ function AdminCard({ title, date, img, price, id, description, deletionDate, set
                     </div>
                 </CardContent>
                 <Typography level="body-sm" sx={{ fontSize: 11, paddingLeft: 1, color: 'rgb(67 63 63 / 87%)' }}>Item Number: {id}</Typography>
+                <IconButton
+                    color=""
+                    onClick={() => onEdit(id)}
+                    aria-label="delete" style={{ marginLeft: 280, }}
+                >
+                    <Edit />
+                </IconButton>
                 {deletionDate ? (
                     new Date(deletionDate).toLocaleString()
                 ) : (

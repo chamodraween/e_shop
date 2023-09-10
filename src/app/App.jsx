@@ -34,9 +34,7 @@ console.log("route.path", route.pathname)
 
   return (
     <Box >
-    <Routes>
-        <Route exact path={'/'} element={<Login />} />
-    </Routes>
+
         {/*  <Routes>
             {getRoutes(routes)}
              <Route path={'/admin-dashboard'} element={<ClippedDrawer />} >
@@ -48,7 +46,8 @@ console.log("route.path", route.pathname)
                     <Route path={'/dashboard'} element={<Dashboard/>} key={'dashboard'}/>
         </Routes> */}
 
-        {route.pathname !== '/' &&  <ClippedDrawer />}
+
+            <ClippedDrawer />
 
     </Box>
   )
@@ -90,6 +89,10 @@ function ClippedDrawer() {
     let adminauth = localStorage.getItem("admin-authenticated")
     console.log('adminn auth : ', adminauth)
 
+    const location = useLocation();
+    const adminpaths = routes.filter(route => route.requiresAdmin).map(route => route.path);
+    console.log(adminpaths, location.pathname)
+
     return (
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
@@ -102,7 +105,7 @@ function ClippedDrawer() {
                     <Button
                         onClick={() => {
                             localStorage.removeItem('admin-authenticated');
-                            navigate('/login');
+                            navigate('/home');
                         }}
                     >
                         Logout
@@ -124,7 +127,7 @@ function ClippedDrawer() {
             <List>
 
                 {
-                    adminauth ? (
+                    adminpaths.includes(location.pathname) ? (
                         <> {routes.map((val, index)=>(
                             <>{val.requiresAdmin ?  <Link to={val.path} key={index} style={{textDecoration: 'none'}}>
                                 <ListItem disablePadding>
@@ -159,7 +162,9 @@ function ClippedDrawer() {
           <Toolbar/>
             <div>
                  <Routes>
+                     {getRoutes(routes)}
                    {getRoutes(routes, adminauth)}
+                     <Route path={'*'} element={adminpaths.includes(location.pathname)? <Navigate to='/login' /> : <Navigate to={'/home'}/>} />
                  </Routes>
             </div>
         </Box>

@@ -9,6 +9,7 @@ import Draggable from 'react-draggable';
 import '../../app/App.css'
 import Button from "@mui/joy/Button";
 import BuyerInfoForm from "./BuyerInfoForm.jsx";
+import Box from "@mui/material/Box";
 /*import ReturnID from "../CatchID/returnid.jsx";*/
 
 
@@ -23,7 +24,8 @@ import BuyerInfoForm from "./BuyerInfoForm.jsx";
     );
 }
 
-export default function DraggableDialog() {
+export default function DraggableDialog({item}) {
+     const {title, date, img, price,description} = item;
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -55,7 +57,12 @@ export default function DraggableDialog() {
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        <BuyerInfoForm/>
+                        <Box>
+                            <h3>{title}</h3>
+                            <h4>{price}</h4>
+                            <h4>{date}</h4>
+                        </Box>
+                        <BuyerInfoForm item={item}/>
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>

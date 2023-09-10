@@ -5,21 +5,37 @@ import axios from "axios";
 import Alert from '@mui/material/Alert';
 
 
-function BuyerInfoForm(onSubmit) {
+function BuyerInfoForm({item}) {
     /*const [id, setId] = useState([]);*/
     const [uname, setUname] = useState('');
     const [uaddress, setUaddress] = useState('');
     const [ucity, setUcity] = useState('');
     const [uzip, setUzip] = useState('');
+    const {title, price,id} = item;
 
     const postData = () => {
+        console.log('data',{
+            /*id: id,*/
+            uname: uname,
+            uaddress: uaddress,
+            ucity: ucity,
+            uzip: uzip,
+            item_id: id,
+            title : title,
+            price: price
+
+        });
         axios
             .post('http://192.168.8.100:8000/user', {
                 /*id: id,*/
                 uname: uname,
                 uaddress: uaddress,
                 ucity: ucity,
-                uzip: uzip
+                uzip: uzip,
+                item_id: id,
+                title : title,
+                price: price
+
             })
             .then(function (response) {
                 console.log(response);
@@ -45,7 +61,7 @@ function BuyerInfoForm(onSubmit) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onSubmit(buyerInfo);
+        // onSubmit(buyerInfo);
         setBuyerInfo({
             name: "",
             address: "",
