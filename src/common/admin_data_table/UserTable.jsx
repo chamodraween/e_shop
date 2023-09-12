@@ -15,7 +15,7 @@ function createData(id, uname, uaddress, ucity, uzip, deletionDate) {
 }
 
 
-function OrderTable() {
+function UserTable() {
     const [rows, setRows] = useState([]);
 
     useEffect(() => {
@@ -51,44 +51,33 @@ function OrderTable() {
 
     return (
         <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
-                <TableHead>
-                    <TableRow>
-                        <TableCell>Id</TableCell>
-                        <TableCell>Name</TableCell>
-                        <TableCell>Address</TableCell>
-                        <TableCell>City</TableCell>
-                        <TableCell>Zip</TableCell>
-                        <TableCell>Delete</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {rows.map((row) => (
-                        <TableRow key={row.id}>
-                            <TableCell>{row.id}</TableCell>
-                            <TableCell>{row.uname}</TableCell>
-                            <TableCell>{row.uaddress}</TableCell>
-                            <TableCell>{row.ucity}</TableCell>
-                            <TableCell>{row.uzip}</TableCell>
-                            <TableCell>
-                                {row.deletionDate ? (
-                                    new Date(row.deletionDate).toLocaleString()
-                                ) : (
-                                    <IconButton
-                                        color="#0f75bc"
-                                        onClick={() => handleDelete(row.id)}
-                                        aria-label="delete"
-                                    >
-                                        <DeleteIcon />
-                                    </IconButton>
-                                )}
-                            </TableCell>
+            <div style={{ maxHeight: 506.5, overflow: 'auto' }}>
+                <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>#Id</TableCell>
+                            <TableCell>Name</TableCell>
+                            <TableCell>Address</TableCell>
+                            <TableCell>City</TableCell>
+                            <TableCell>Zip</TableCell>
                         </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
+                    </TableHead>
+                    <TableBody>
+                        {rows.map((row) => (
+                            <TableRow key={row.id}>
+                                <TableCell>#{row.id}</TableCell>
+                                <TableCell>{row.uname}</TableCell>
+                                <TableCell>{row.uaddress}</TableCell>
+                                <TableCell>{row.ucity}</TableCell>
+                                <TableCell>{row.uzip}</TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </div>
         </TableContainer>
+
     );
 }
 
-export default OrderTable;
+export default UserTable;

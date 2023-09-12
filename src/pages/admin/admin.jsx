@@ -8,6 +8,10 @@ import Admincard from "../home/admincard.jsx";
 import Stack from "@mui/material/Stack";
 import Textarea from '@mui/joy/Textarea';
 import {Container} from "@mui/material";
+import Grid from "@mui/material/Grid";
+import {styled} from "@mui/material/styles";
+import Paper from "@mui/material/Paper";
+import UserTable from "../../common/admin_data_table/UserTable.jsx";
 
 
 
@@ -97,51 +101,79 @@ function Dashboard() {
     }
 
 
+    const Item = styled(Paper)(({ theme }) => ({
+        backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+        ...theme.typography.body2,
+        padding: theme.spacing(1),
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+    }));
+
 
     return (
         <div>
-            <h2 style={{color:'#494949'}}>Dashboard Page</h2><br/>
-            <Container maxWidth="xs">
-            <Box sx={{ minWidth: 275, maxWidth: 500 }}>
-                <Card variant="outlined" sx={{ padding: 2, backgroundColor: '#f8f8f8', border: 'none', boxShadow: '1px 2px 0px 0px rgba(173,173,173,0.38);' }}>
-
-                    <TextField
-                        value={title}
-                        onChange={(event) => { setTitle(event.target.value) }}
-                        sx={{ marginY: 1, width: '100%' }}
-                        label="Product Title"
-                        variant="outlined" />
-                    <TextField
-                        value={date}
-                        onChange={(event) => { setDate(event.target.value) }}
-                        sx={{ marginY: 1, width: '100%' }}
-                        label="Validation Date"
-                        variant="outlined" />
-                    <TextField
-                        value={img}
-                        onChange={(event) => { setImg(event.target.value) }}
-                        sx={{ marginY: 1, width: '100%' }}
-                        label="Product Img URL"
-                        variant="outlined" />
-                    <TextField
-                        value={price}
-                        onChange={(event) => { setPrice(event.target.value) }}
-                        sx={{ marginY: 1, width: '100%' }}
-                        label="Product Price"
-                        variant="outlined" />
-
-                    <Textarea
-                        value={description}
-                        onChange={(event) => { setDescription(event.target.value) }}
-                        sx={{ marginY: 1, width: '100%', height: 100, whiteSpace: 'pre-wrap' }}
-                        label="Product Description"
-                        variant="outlined" />
-
-                    <Button style={{margin: 1}} onClick={postData} variant="contained">{selectedItemId ? 'Edit': 'Save'}</Button>
-                    <Button style={{margin: 1,marginLeft: 5}} onClick={onCancel} variant={"outlined"}>Cancel</Button>
-                </Card>
+            <Box sx={{ flexGrow: 1,marginLeft: 3 }}>
+                <Grid container spacing={10} columns={16}>
+                    <Grid item xs={5}>
+                        <Item style={{marginLeft: 15,color: '#494949',boxShadow: 'none',}}><h3>Add/Update Listing</h3></Item>
+                    </Grid>
+                    <Grid item xs={9}>
+                        <Item style={{marginLeft: 15,color: '#494949',boxShadow: 'none',}}><h3>Customers</h3> </Item>
+                    </Grid>
+                </Grid>
             </Box>
-            </Container>
+            <Box sx={{ flexGrow: 1,margin: 3 }}>
+                <Grid container spacing={2} columns={16}>
+                    <Grid item xs={5}>
+                        <Item>
+                                    <Card variant="outlined" sx={{ padding: 2, border: 'none', }}>
+
+                                        <TextField
+                                            value={title}
+                                            onChange={(event) => { setTitle(event.target.value) }}
+                                            sx={{ marginY: 1, width: '100%' }}
+                                            label="Product Title"
+                                            variant="outlined" />
+                                        <TextField
+                                            value={date}
+                                            onChange={(event) => { setDate(event.target.value) }}
+                                            sx={{ marginY: 1, width: '100%' }}
+                                            label="Validation Date"
+                                            variant="outlined" />
+                                        <TextField
+                                            value={img}
+                                            onChange={(event) => { setImg(event.target.value) }}
+                                            sx={{ marginY: 1, width: '100%' }}
+                                            label="Product Img URL"
+                                            variant="outlined" />
+                                        <TextField
+                                            value={price}
+                                            onChange={(event) => { setPrice(event.target.value) }}
+                                            sx={{ marginY: 1, width: '100%' }}
+                                            label="Product Price"
+                                            variant="outlined" />
+
+                                        <Textarea
+                                            value={description}
+                                            onChange={(event) => { setDescription(event.target.value) }}
+                                            sx={{ marginY: 1, width: '100%', height: 100, whiteSpace: 'pre-wrap' }}
+                                            label="Product Description"
+                                            variant="outlined" />
+
+                                        <Button style={{margin: 1}} onClick={postData} variant="contained">{selectedItemId ? 'Edit': 'Save'}</Button>
+                                        <Button style={{margin: 1,marginLeft: 5}} onClick={onCancel} variant={"outlined"}>Cancel</Button>
+                                    </Card>
+                        </Item>
+                    </Grid>
+                    <Grid  item xs={10}>
+                        <Item style={{boxShadow: 'none',maxHeight: 506.5}}>
+                            <UserTable/>
+                        </Item>
+                    </Grid>
+                </Grid>
+            </Box>
+
+
             <Box sx={{ minWidth: 275,}}>
             <Stack spacing={{ xs: 1, sm: 2 }} direction="row" useFlexGap flexWrap="wrap">
                 {

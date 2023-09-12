@@ -1,3 +1,5 @@
+import * as React from "react";
+
 function Terms() {
     return (
         <div>
@@ -112,7 +114,7 @@ function Terms() {
                 <li>
                     <strong>Contact Information</strong>
                     <p>
-                        If you have questions or concerns about these Terms and Conditions, please contact us at [contact@email.com].
+                        If you have questions or concerns about these Terms and Conditions, please contact us at <span style={{textDecoration: 'none',paddingLeft: 17,color:'#939393',fontSize: 13,fontWeight: 700,margin: 0}}><a style={{textDecoration: 'none',color:'#0f75bc',fontWeight: 700}} href='mailto:contact@email.com' >contact@email.com</a></span>
                     </p>
                 </li>
             </ol>
