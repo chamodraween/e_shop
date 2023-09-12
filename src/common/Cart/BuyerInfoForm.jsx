@@ -3,6 +3,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import axios from "axios";
 import Alert from '@mui/material/Alert';
+import {shippingCost} from "../../constants.js";
 
 
 function BuyerInfoForm({item}) {
@@ -14,27 +15,17 @@ function BuyerInfoForm({item}) {
     const {title, price,id} = item;
 
     const postData = () => {
-        console.log('data',{
-            /*id: id,*/
-            uname: uname,
-            uaddress: uaddress,
-            ucity: ucity,
-            uzip: uzip,
-            item_id: id,
-            title : title,
-            price: price
 
-        });
         axios
-            .post('http://192.168.8.100:8000/user', {
-                /*id: id,*/
+            .post('http://192.168.8.100:8006/api/v1/orders', {
+
                 uname: uname,
                 uaddress: uaddress,
                 ucity: ucity,
                 uzip: uzip,
                 item_id: id,
                 title : title,
-                price: price
+                price: parseFloat(price) + shippingCost
 
             })
             .then(function (response) {
@@ -84,7 +75,7 @@ function BuyerInfoForm({item}) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <h1>Buyer Information</h1>
+            <h1>Ship to</h1>
             <TextField
                 onChange={(event) => { setUname(event.target.value) }}
                 sx={{ marginY: 1, width: '100%' }}

@@ -22,7 +22,7 @@ function Home() {
     },[])
 
     const getData = () => {
-        axios.get('http://192.168.8.100:8000/get')
+        axios.get('http://192.168.8.100:8006/api/v1/card')
             .then(function (response) {
                 setData(response.data);
             })

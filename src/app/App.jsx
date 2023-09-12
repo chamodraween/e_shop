@@ -23,30 +23,22 @@ import Dashboard from "../pages/About/about.jsx";
 import Home from "../pages/home/home.jsx";
 /*import {Link} from "@mui/material";*/
 import routes from "../common/navigation/routes.jsx";
+import logo from '../assets/eshop.png';
 import AppBar from "@mui/material/AppBar";
 import {Fragment} from "react";
 import Login from "../common/LoginComponent/Login.jsx";
 import Button from "@mui/joy/Button";
 
+
 function App() {
+
+
 const route = useLocation();
 console.log("route.path", route.pathname)
 
+
   return (
     <Box >
-
-        {/*  <Routes>
-            {getRoutes(routes)}
-             <Route path={'/admin-dashboard'} element={<ClippedDrawer />} >
-                 {getRoutes(routes, true)}
-             </Route>
-
-            <Route path={'*'} element={<Navigate to={'/home'}/>}/>
-            {/*<Route path={'/home'} element={<Home/>} key={'home'}/>
-                    <Route path={'/dashboard'} element={<Dashboard/>} key={'dashboard'}/>
-        </Routes> */}
-
-
             <ClippedDrawer />
 
     </Box>
@@ -85,6 +77,7 @@ const getRoutes = (allRoutes, auth=false) => {
 }
 
 function ClippedDrawer() {
+
     const navigate = useNavigate();
     let adminauth = localStorage.getItem("admin-authenticated")
     console.log('adminn auth : ', adminauth)
@@ -99,8 +92,15 @@ function ClippedDrawer() {
         <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1,backgroundColor: '#262626'  }}>
             <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Typography variant="h6" noWrap component="div">
-                    e Shop
+                    <img src={logo} className="App-logo" alt="logo" style={{ width: '50px', height: 'auto',borderRadius: 4,marginTop: 2 }} onClick={() => {navigate('/home')}}/>
                 </Typography>
+                {adminauth && (
+                <h2 style={{}}
+
+                >
+                    Admin Panel  </h2>
+                )}
+
                 {adminauth && (
                     <Button
                         onClick={() => {
@@ -119,9 +119,11 @@ function ClippedDrawer() {
             sx={{
               width: drawerWidth,
               flexShrink: 0,
-              [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
+
+              [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box',  justifyContent: 'space-between', },
             }}
         >
+            <Box>
           <Toolbar />
           <Box sx={{ overflow: 'auto',}}>
             <List>
@@ -157,6 +159,12 @@ function ClippedDrawer() {
                 }
             </List>
           </Box>
+          </Box>
+            <footer style={{justifyContent: 'space-between',padding: 5,paddingRight: 6}}>
+                <hr style={{ width: '95%', opacity: 0.3 }} />
+                <p style={{textDecoration: 'none',paddingLeft: 17,color:'#939393',fontSize: 13,fontWeight: 700,margin: 0}}>Powered by <a style={{textDecoration: 'none',color:'#0f75bc',fontWeight: 700}} href='https://github.com/chamodraween' >Chamod Raween</a></p>
+                <p style={{textDecoration: 'none',paddingLeft: 17,color:'#656565',fontSize: 13,fontWeight: 700,margin: 0}}>© All rights reserved | Sri Lanka</p>
+            </footer>
         </Drawer>
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <Toolbar/>

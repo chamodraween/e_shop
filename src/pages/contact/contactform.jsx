@@ -41,6 +41,7 @@ function ContactForm() {
             <form onSubmit={handleSubmit}>
                 <div>
                     <TextField
+                        sx={{margin: 1,width: '99%'}}
                         label="Name"
                         type="text"
                         name="name"
@@ -52,6 +53,7 @@ function ContactForm() {
                 </div>
                 <div>
                     <TextField
+                        sx={{margin: 1,width: '99%'}}
                         label="Email"
                         type="email"
                         name="email"
@@ -63,6 +65,7 @@ function ContactForm() {
                 </div>
                 <div>
                     <TextField
+                        sx={{margin: 1,width: '99%'}}
                         label="Message"
                         name="message"
                         value={formData.message}

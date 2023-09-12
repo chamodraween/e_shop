@@ -16,7 +16,9 @@ import ContactMailIcon from '@mui/icons-material/ContactMail';
 const routes = [
 
     {
-        name: "Home",
+        name: (
+            <span style={{ color: '#0f75bc' }}>Home</span>
+        ),
         key: 'home',
         path: '/home',
         exact: true,
@@ -25,7 +27,9 @@ const routes = [
 
     },
     {
-        name: "About",
+        name: (
+            <span style={{ color: '#0f75bc' }}>About</span>
+        ),
         key: 'about',
         path: '/about',
         exact: true,
@@ -34,7 +38,9 @@ const routes = [
 
     },
     {
-        name: "Contact",
+        name: (
+            <span style={{ color: '#0f75bc' }}>Contact</span>
+        ),
         key: 'contact',
         path: '/contact',
         exact: true,
@@ -49,7 +55,9 @@ const routes = [
         component: <AdminLogin/>,
     },
     {
-        name: "admin",
+        name: (
+            <span style={{ color: '#0f75bc' }}>Admin</span>
+        ),
         key: 'admin',
         path: '/admin',
         exact: true,
@@ -58,7 +66,9 @@ const routes = [
         requiresAdmin: true, // Require admin authentication
     },
     {
-        name: "order",
+        name: (
+            <span style={{ color: '#0f75bc' }}>Order</span>
+        ),
         key: 'order',
         path: '/order',
         exact: true,

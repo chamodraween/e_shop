@@ -24,7 +24,7 @@ function DenseTable() {
 
     const getData = () => {
         axios
-            .get('http://192.168.8.100:8000/userdata')
+            .get('http://192.168.8.100:8006/api/v1/orders')
             .then(function (response) {
                 console.log("order data: ", response.data)
                 setRows(response.data.map((item) => createData(item.id, item.item_id, item.title, item.price, item.uname, item.uaddress, item.ucity, item.uzip, item.deletionDate )));
@@ -36,7 +36,7 @@ function DenseTable() {
 console.log('rows',rows)
     const handleDelete = (id) => {
         axios
-            .delete(`http://192.168.8.100:8000/userdata/${id}`)
+            .delete(`http://192.168.8.100:8006/api/v1/orders/${id}`)
             .then(function (response) {
                 // Update the deletionDate for the deleted row
                 setRows((prevRows) =>

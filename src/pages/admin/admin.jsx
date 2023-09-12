@@ -24,7 +24,7 @@ function Dashboard() {
         if (selectedItemId){
             // update the item
             console.log('upddateing')
-            axios.put('http://192.168.8.100:8000/update', {
+            axios.put('http://192.168.8.100:8006/api/v1/card', {
                 id: selectedItemId,
                 title: title,
                 date: date,
@@ -40,7 +40,7 @@ function Dashboard() {
                 });
         }else {
             axios
-                .post('http://192.168.8.100:8000/post', {
+                .post('http://192.168.8.100:8006/api/v1/card', {
                     title: title,
                     date: date,
                     img: img,
@@ -86,7 +86,7 @@ function Dashboard() {
     }
 
     const getData = () => {
-        axios.get('http://192.168.8.100:8000/get')
+        axios.get('http://192.168.8.100:8006/api/v1/card')
             .then(function (response) {
                 setData(response.data);
             })
@@ -100,7 +100,7 @@ function Dashboard() {
 
     return (
         <div>
-            <h1>Dashboard Page</h1><br/><br/>
+            <h1>Dashboard Page</h1><br/>
             <Container maxWidth="xs">
             <Box sx={{ minWidth: 275, maxWidth: 500 }}>
                 <Card variant="outlined" sx={{ padding: 2, backgroundColor: '#f8f8f8', border: 'none', boxShadow: '1px 2px 0px 0px rgba(173,173,173,0.38);' }}>
@@ -137,8 +137,8 @@ function Dashboard() {
                         label="Product Description"
                         variant="outlined" />
 
-                    <Button onClick={postData} variant="contained">{selectedItemId ? 'Edit': 'Save'}</Button>
-                    <Button onClick={onCancel} variant={"outlined"}>Cancel</Button>
+                    <Button style={{margin: 1}} onClick={postData} variant="contained">{selectedItemId ? 'Edit': 'Save'}</Button>
+                    <Button style={{margin: 1,marginLeft: 5}} onClick={onCancel} variant={"outlined"}>Cancel</Button>
                 </Card>
             </Box>
             </Container>

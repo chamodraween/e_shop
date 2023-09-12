@@ -10,6 +10,7 @@ import '../../app/App.css'
 import Button from "@mui/joy/Button";
 import BuyerInfoForm from "./BuyerInfoForm.jsx";
 import Box from "@mui/material/Box";
+import ShowMoreText from "react-show-more-text";
 /*import ReturnID from "../CatchID/returnid.jsx";*/
 
 
@@ -27,6 +28,12 @@ import Box from "@mui/material/Box";
 export default function DraggableDialog({item}) {
      const {title, date, img, price,description} = item;
     const [open, setOpen] = React.useState(false);
+
+    const shippingCost = 300; // Replace with your shipping cost
+
+    const itemPrice = parseFloat(price);
+
+    const totalPrice = itemPrice + shippingCost;
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -52,16 +59,32 @@ export default function DraggableDialog({item}) {
                 PaperComponent={PaperComponent}
                 aria-labelledby="draggable-dialog-title"
             >
+
                 <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title">
-                    Cash On delivery
+                    <h1 style={{color: 'rgba(0, 0, 0, 0.6)'}}>Cash On delivery</h1>
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText>
+                        <h2>You Selected item</h2>
                         <Box>
-                            <h3>{title}</h3>
-                            <h4>{price}</h4>
+                            <img src={img} alt="Your Image" style={{ width: '100px', height: 'auto',borderRadius: 4 }} />
+                            <h2 style={{marginTop: -50 ,marginLeft: 120}}>{title}</h2>
+                            <h3>Total Price :</h3>
+                            <h2 style={{ color: '#0f75bc',marginTop: -50 ,marginLeft: 120}}>Rs {totalPrice}</h2>
+                            <ShowMoreText
+                                className="show_text"
+                                sx={{padding: 3,}}
+                                lines={1}
+                                more={<span style={{ color: '#0f75bc' }}>Show more</span>}
+                                less={<span style={{ color: 'red' }}>Show less</span>}
+                                anchorClass=''
+                            >
+                                {/*<span style={{ fontSize: '16px',fontWeight: 700 }}>{title}</span><br/>*/}
+                                <div style={{ marginTop: '10px' }} dangerouslySetInnerHTML={{ __html: description }} />
+                            </ShowMoreText>
                             <h4>{date}</h4>
                         </Box>
+                        <hr/>
                         <BuyerInfoForm item={item}/>
                     </DialogContentText>
                 </DialogContent>
