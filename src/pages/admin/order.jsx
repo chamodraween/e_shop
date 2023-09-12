@@ -10,7 +10,7 @@ function OrderPage() {
 
     return (
         <div>
-            <h1>Order Page</h1>
+            <h2 style={{color:'#494949'}}>Order Page</h2>
             <DenseTable/>
             {/*<div style={{marginTop: '20px'}}>
                 <h3>Orders</h3>

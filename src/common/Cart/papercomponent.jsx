@@ -45,10 +45,10 @@ export default function DraggableDialog({item}) {
 
     return (
         <div>
-            <Button className="buy_btn" variant="solid" sx={{ ml: 'auto', fontWeight: 700,marginBottom: 1,paddingLeft: 1,marginLeft: 30,color: 'white'}}
+            <Button className="buy_btn" variant="solid" sx={{ ml: 'auto', fontWeight: 700,marginBottom: 1,paddingLeft: 1,marginLeft: 28,color: 'white'}}
                     onClick={handleClickOpen}
                 >
-                    Explore
+                    Continue
                 </Button>
             {/*<Button variant="outlined" onClick={handleClickOpen}>
                 Open draggable dialog
@@ -73,18 +73,17 @@ export default function DraggableDialog({item}) {
                             <h2 style={{ color: '#0f75bc',marginTop: -50 ,marginLeft: 120}}>Rs {totalPrice}</h2>
                             <ShowMoreText
                                 className="show_text"
-                                sx={{padding: 3,}}
                                 lines={1}
                                 more={<span style={{ color: '#0f75bc' }}>Show more</span>}
                                 less={<span style={{ color: 'red' }}>Show less</span>}
                                 anchorClass=''
                             >
-                                {/*<span style={{ fontSize: '16px',fontWeight: 700 }}>{title}</span><br/>*/}
-                                <div style={{ marginTop: '10px' }} dangerouslySetInnerHTML={{ __html: description }} />
+                                <span style={{ fontSize: '16px', fontWeight: 700 }}>{title}</span>
+                                <div style={{ marginTop: '10px', padding: '1px', whiteSpace: 'pre-wrap',textAlign: 'justify' }} dangerouslySetInnerHTML={{ __html: description }} />
                             </ShowMoreText>
                             <h4>{date}</h4>
                         </Box>
-                        <hr/>
+                        <hr style={{opacity: 0.3 }} />
                         <BuyerInfoForm item={item}/>
                     </DialogContentText>
                 </DialogContent>

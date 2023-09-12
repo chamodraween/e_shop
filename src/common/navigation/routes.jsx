@@ -9,6 +9,8 @@ import About from "../../pages/About/about.jsx";
 import InfoIcon from '@mui/icons-material/Info';
 import Contact from "../../pages/contact/contact.jsx";
 import ContactMailIcon from '@mui/icons-material/ContactMail';
+import Terms from "../../pages/Terms&Conditions/terms&conditions.jsx";
+import PolicyIcon from '@mui/icons-material/Policy';
 
 
 
@@ -17,7 +19,7 @@ const routes = [
 
     {
         name: (
-            <span style={{ color: '#0f75bc' }}>Home</span>
+            <span style={{ color: '#0f75bc',fontWeight: 700 }}>Home</span>
         ),
         key: 'home',
         path: '/home',
@@ -28,7 +30,7 @@ const routes = [
     },
     {
         name: (
-            <span style={{ color: '#0f75bc' }}>About</span>
+            <span style={{ color: '#0f75bc',fontWeight: 700 }}>About</span>
         ),
         key: 'about',
         path: '/about',
@@ -39,13 +41,24 @@ const routes = [
     },
     {
         name: (
-            <span style={{ color: '#0f75bc' }}>Contact</span>
+            <span style={{ color: '#0f75bc',fontWeight: 700 }}>Contact</span>
         ),
         key: 'contact',
         path: '/contact',
         exact: true,
         component: <Contact/>,
         icon: <ContactMailIcon/>,
+
+    },
+    {
+        name: (
+            <span style={{ color: '#0f75bc',fontWeight: 700 }}>Policy</span>
+        ),
+        key: 'terms',
+        path: '/terms',
+        exact: true,
+        component: <Terms/>,
+        icon: <PolicyIcon/>,
 
     },
     {
@@ -56,7 +69,7 @@ const routes = [
     },
     {
         name: (
-            <span style={{ color: '#0f75bc' }}>Admin</span>
+            <span style={{ color: '#0f75bc',fontWeight: 700 }}>Dashboard</span>
         ),
         key: 'admin',
         path: '/admin',
@@ -67,7 +80,7 @@ const routes = [
     },
     {
         name: (
-            <span style={{ color: '#0f75bc' }}>Order</span>
+            <span style={{ color: '#0f75bc',fontWeight: 700 }}>Order</span>
         ),
         key: 'order',
         path: '/order',

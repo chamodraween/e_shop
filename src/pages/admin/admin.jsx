@@ -100,7 +100,7 @@ function Dashboard() {
 
     return (
         <div>
-            <h1>Dashboard Page</h1><br/>
+            <h2 style={{color:'#494949'}}>Dashboard Page</h2><br/>
             <Container maxWidth="xs">
             <Box sx={{ minWidth: 275, maxWidth: 500 }}>
                 <Card variant="outlined" sx={{ padding: 2, backgroundColor: '#f8f8f8', border: 'none', boxShadow: '1px 2px 0px 0px rgba(173,173,173,0.38);' }}>

@@ -72,7 +72,7 @@ function AdminCard({ title, date, img, price, id, description, deletionDate, set
                         anchorClass=''
                     >
                         <span style={{ fontSize: '16px',fontWeight: 700 }}>{title}</span>
-                        <div style={{ marginTop: '10px',padding:1 }} dangerouslySetInnerHTML={{ __html: description }} />
+                        <div style={{ marginTop: '10px',padding:1,textAlign: 'justify',whiteSpace: 'pre-wrap' }} dangerouslySetInnerHTML={{ __html: description }} />
                     </ShowMoreText>
                 </CardContent>
 

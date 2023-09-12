@@ -89,13 +89,13 @@ function ClippedDrawer() {
     return (
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-        <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1,backgroundColor: '#262626'  }}>
+        <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1,backgroundColor: '#fff'  }}>
             <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Typography variant="h6" noWrap component="div">
                     <img src={logo} className="App-logo" alt="logo" style={{ width: '50px', height: 'auto',borderRadius: 4,marginTop: 2 }} onClick={() => {navigate('/home')}}/>
                 </Typography>
                 {adminauth && (
-                <h2 style={{}}
+                <h2 style={{color:'#494949'}}
 
                 >
                     Admin Panel </h2>
@@ -162,7 +162,7 @@ function ClippedDrawer() {
           </Box>
             <footer style={{justifyContent: 'space-between',padding: 5,paddingRight: 6}}>
                 <hr style={{ width: '95%', opacity: 0.3 }} />
-                <p style={{textDecoration: 'none',paddingLeft: 17,color:'#939393',fontSize: 13,fontWeight: 700,margin: 0}}>Powered by <a style={{textDecoration: 'none',color:'#0f75bc',fontWeight: 700}} href='https://github.com/chamodraween' >Chamod Raween</a></p>
+                <p style={{textDecoration: 'none',paddingLeft: 17,color:'#939393',fontSize: 13,fontWeight: 700,margin: 0}}>Made by <a style={{textDecoration: 'none',color:'#0f75bc',fontWeight: 700}} href='https://github.com/chamodraween' >Chamod Raween</a></p>
                 <p style={{textDecoration: 'none',paddingLeft: 17,color:'#656565',fontSize: 13,fontWeight: 700,margin: 0}}>© All rights reserved | Sri Lanka</p>
             </footer>
         </Drawer>

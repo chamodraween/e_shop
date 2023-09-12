@@ -5,7 +5,7 @@ function Contact() {
 
     return (
         <div>
-            <h1>Contact Page</h1>
+            <h2 style={{color:'#494949'}}>Contact Page</h2>
             <ContactForm/>
 
             <TawToChat/>

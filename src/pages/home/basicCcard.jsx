@@ -56,7 +56,7 @@ function BasicCard ({item}) {
                 <Typography level="body-sm" sx={{fontSize: 13,paddingLeft: 1,color: 'rgb(67 63 63 / 87%)'}}>{date}</Typography>
                 <hr style={{ width: '95%', opacity: 0.3 }} />
 
-                <CardContent orientation="horizontal" style={{padding: 7}}>
+                <CardContent style={{ padding: '7px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
                     <ShowMoreText
                         className="show_text"
                         lines={1}
@@ -64,8 +64,8 @@ function BasicCard ({item}) {
                         less={<span style={{ color: 'red' }}>Show less</span>}
                         anchorClass=''
                     >
-                        <span style={{ fontSize: '16px',fontWeight: 700 }}>{title}</span>
-                        <div style={{ marginTop: '10px',padding:1 }} dangerouslySetInnerHTML={{ __html: description }} />
+                        <span style={{ fontSize: '16px', fontWeight: 700 }}>{title}</span>
+                        <div style={{ marginTop: '10px', padding: '1px', whiteSpace: 'pre-wrap',textAlign: 'justify' }} dangerouslySetInnerHTML={{ __html: description }} />
                     </ShowMoreText>
                 </CardContent>
 
