@@ -98,7 +98,7 @@ function ClippedDrawer() {
                 <h2 style={{}}
 
                 >
-                    Admin Panel  </h2>
+                    Admin Panel </h2>
                 )}
 
                 {adminauth && (

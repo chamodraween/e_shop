@@ -5,6 +5,7 @@ import BookmarkAdd from "@mui/icons-material/BookmarkAddOutlined.js";
 import AspectRatio from "@mui/joy/AspectRatio";
 import CardContent from "@mui/joy/CardContent";
 import Button from "@mui/joy/Button";
+// eslint-disable-next-line no-unused-vars
 import React from "react";
 import Grid from '@mui/material/Grid';
 import '../../app/App.css'

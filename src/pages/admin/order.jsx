@@ -1,7 +1,7 @@
 
 import React from "react";
 import DenseTable from "../../common/admin_data_table/DataTable.jsx";
-import OrderTable from "../../common/admin_data_table/OrderTable.jsx";
+/*import OrderTable from "../../common/admin_data_table/OrderTable.jsx";*/
 
 
 
