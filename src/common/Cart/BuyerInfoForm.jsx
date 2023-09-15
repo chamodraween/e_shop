@@ -9,6 +9,7 @@ import {shippingCost} from "../../constants.js";
 function BuyerInfoForm({item}) {
     /*const [id, setId] = useState([]);*/
     const [uname, setUname] = useState('');
+    const [email, setEmail] = useState('');
     const [uaddress, setUaddress] = useState('');
     const [ucity, setUcity] = useState('');
     const [uzip, setUzip] = useState('');
@@ -20,6 +21,7 @@ function BuyerInfoForm({item}) {
             .post('http://192.168.8.100:8006/api/v1/orders', {
 
                 uname: uname,
+                email: email,
                 uaddress: uaddress,
                 ucity: ucity,
                 uzip: uzip,
@@ -40,6 +42,7 @@ function BuyerInfoForm({item}) {
 
     const [buyerInfo, setBuyerInfo] = useState({
         name: "",
+        email: "",
         address: "",
         city: "",
         zipCode: "",
@@ -55,6 +58,7 @@ function BuyerInfoForm({item}) {
         // onSubmit(buyerInfo);
         setBuyerInfo({
             name: "",
+            email: "",
             address: "",
             city: "",
             zipCode: "",
@@ -81,24 +85,36 @@ function BuyerInfoForm({item}) {
                 sx={{ marginY: 1, width: '100%' }}
                 label="Full Name"
                 placeholder="Enter You Full Name"
+                required
                 variant="outlined" />
+            <TextField
+                onChange={(event) => { setEmail(event.target.value) }}
+                sx={{ marginY: 1, width: '100%' }}
+                label="Email"
+                placeholder="Enter You Email"
+                variant="outlined"
+                required
+                type='email' />
             <TextField
                 onChange={(event) => { setUaddress(event.target.value) }}
                 sx={{ marginY: 1, width: '100%' }}
                 label="Address"
                 placeholder="Enter You Address"
+                required
                 variant="outlined" />
             <TextField
                 onChange={(event) => { setUcity(event.target.value) }}
                 sx={{ marginY: 1, width: '100%' }}
                 label="City"
                 placeholder="Enter You Ctiy"
+                required
                 variant="outlined" />
             <TextField
                 onChange={(event) => { setUzip(event.target.value) }}
                 sx={{ marginY: 1, width: '100%' }}
                 label="Zip"
                 placeholder="Enter You Zip"
+                required
                 variant="outlined" />
             <div>
                 <Button

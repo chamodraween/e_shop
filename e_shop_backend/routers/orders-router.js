@@ -5,7 +5,7 @@ const { saveOrder, getOrders, updateOrders,deleteOrders} = require('../controlle
 
 router.get("/", getOrders);
 router.post("/",saveOrder);
-router.put("/", updateOrders);
+router.put("/:id", updateOrders);
 router.delete("/:id", deleteOrders);
 
 module.exports = router;

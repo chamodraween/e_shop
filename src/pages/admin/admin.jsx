@@ -166,7 +166,7 @@ function Dashboard() {
                         </Item>
                     </Grid>
                     <Grid  item xs={10}>
-                        <Item style={{boxShadow: 'none',maxHeight: 506.5}}>
+                        <Item style={{boxShadow: 'none',maxHeight: 506.5,padding: 0}}>
                             <UserTable/>
                         </Item>
                     </Grid>

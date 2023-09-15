@@ -16,10 +16,13 @@ app.use(bodyParser.urlencoded({extended: false }))
 
 const card =require("./routers/card-router");
 const orders =require("./routers/orders-router");
+const email = require("./routers/email-router");
 
 app.use('/api/v1/card', card)
 app.use('/api/v1/orders', orders)
-app.use('/api/v1/email', orders)
+app.use('/api/v1/email', email)
+
+
 
 
 // Start the Express.js server

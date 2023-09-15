@@ -3,9 +3,11 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TableContainer from "@mui/material/TableContainer";
+import Alert from "@mui/material/Alert";
+
 
 function ContactForm() {
-    const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+    const [formData, setFormData] = useState({ name: '', iemail: '', message: '' });
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
@@ -13,10 +15,11 @@ function ContactForm() {
         e.preventDefault();
 
         try {
-            const response = await fetch('/api/send-email', {
+            const response = await fetch('http://192.168.8.100:8006/api/v1/email', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+
                 },
                 body: JSON.stringify(formData),
             });
@@ -36,8 +39,16 @@ function ContactForm() {
         <div>
             <TableContainer>
             <Typography variant="h5">Contact Us</Typography>
-            {successMessage && <Typography className="success">{successMessage}</Typography>}
-            {errorMessage && <Typography className="error">{errorMessage}</Typography>}
+                {successMessage && (
+                    <Alert sx={{ marginY: 3}} severity="success" color="info">
+                        {successMessage}
+                    </Alert>
+                )}
+                {errorMessage && (
+                    <Alert sx={{ marginY: 3}} severity="success" color="info">
+                        {errorMessage}
+                    </Alert>
+                )}
             <form onSubmit={handleSubmit}>
                 <div>
                     <TextField
@@ -57,8 +68,8 @@ function ContactForm() {
                         label="Email"
                         type="email"
                         name="email"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        value={formData.iemail}
+                        onChange={(e) => setFormData({ ...formData, iemail: e.target.value })}
                         required
                         fullWidth
                     />

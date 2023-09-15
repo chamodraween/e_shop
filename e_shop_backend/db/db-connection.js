@@ -8,7 +8,7 @@ function getConnection() {
             host: 'localhost',
             user: 'root',
             password: 'Chamod@217',
-            database: 'e_shop',
+            database: 'store',
           });
 
     }
