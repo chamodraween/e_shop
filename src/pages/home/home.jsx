@@ -12,6 +12,7 @@ import BasicCard from "./basicCcard.jsx";
 import Stack from '@mui/material/Stack';
 import LinearProgressThickness from "../../common/Thickness/Thickness.jsx";
 import TawToChat from "../contact/TawkToChat.jsx";
+import AxiosInstance from "../../server/axiosInstance/axiosInstance.js";
 function Home() {
     const [data, setData] = useState([]);
 
@@ -22,7 +23,7 @@ function Home() {
     },[])
 
     const getData = () => {
-        axios.get('http://192.168.8.100:8006/api/v1/card')
+        AxiosInstance.get('/api/v1/card')
             .then(function (response) {
                 setData(response.data);
             })

@@ -34,3 +34,10 @@
     height: 100%;
     object-fit: cover;
 }
+.button_class{
+    background-color:#0f75bc !important;
+}
+.button_class:hover{
+    background-color: #064f86 !important;
+}
+

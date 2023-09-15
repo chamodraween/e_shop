@@ -23,11 +23,13 @@ import Dashboard from "../pages/About/about.jsx";
 import Home from "../pages/home/home.jsx";
 /*import {Link} from "@mui/material";*/
 import routes from "../common/navigation/routes.jsx";
-import logo from '../assets/eshop.png';
+import logo from '../assets/online.svg';
 import AppBar from "@mui/material/AppBar";
 import {Fragment} from "react";
 import Login from "../common/LoginComponent/Login.jsx";
 import Button from "@mui/joy/Button";
+import './App.css'
+import * as path from "path";
 
 
 function App() {
@@ -86,23 +88,35 @@ function ClippedDrawer() {
     const adminpaths = routes.filter(route => route.requiresAdmin).map(route => route.path);
     console.log(adminpaths, location.pathname)
 
+    // Function to get the page name based on the current pathname
+    const getPageName = () => {
+        const currentRoute = routes.find(route => route.path === location.pathname);
+        return currentRoute ? currentRoute.name : '';
+    };
+
     return (
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-        <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1,backgroundColor: '#fff'  }}>
+        <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 0,backgroundColor: '#fff',boxShadow: 'none',borderBottom: '1px solid #bdbdbd' ,minHeight:77 }}>
             <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Typography variant="h6" noWrap component="div">
-                    <img src={logo} className="App-logo" alt="logo" style={{ width: '50px', height: 'auto',borderRadius: 4,marginTop: 2 }} onClick={() => {navigate('/home')}}/>
-                </Typography>
+                {/*<Typography variant="h6" noWrap component="div">
+                </Typography>*/}
+                {adminauth || (
+                    <h2 style={{ color: '#494949', marginLeft: '14rem', padding: 0 ,position: 'absolute'}}>
+                        {getPageName()}
+                    </h2>
+                )}
                 {adminauth && (
-                <h2 style={{color:'#494949'}}
+                <h2 style={{color:'#494949',marginLeft: '14rem',padding:0, position: 'absolute'}}
 
                 >
-                    Admin Panel </h2>
+                    Admin Panel {getPageName()}</h2>
                 )}
 
                 {adminauth && (
                     <Button
+                        className="button_class"
+                        style={{padding:0,paddingLeft: 10 ,paddingRight: 10,}}
                         onClick={() => {
                             localStorage.removeItem('admin-authenticated');
                             navigate('/home');
@@ -112,19 +126,22 @@ function ClippedDrawer() {
                     </Button>
                 )}
             </Toolbar>
-
         </AppBar>
         <Drawer
+            className="drawer"
             variant="permanent"
             sx={{
               width: drawerWidth,
               flexShrink: 0,
 
-              [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box',  justifyContent: 'space-between', },
+              [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box',  justifyContent: 'space-between',backgroundColor: '#f3f3f3' },
             }}
         >
+            <img src={logo} className="App-logo" alt="logo" style={{ width: '50px', height: 'auto',borderRadius: 4,marginTop: 8,position: 'absolute',marginLeft: 20 }} onClick={() => {navigate('/home')}}/>
+
             <Box>
-          <Toolbar />
+          <Toolbar/>
+                <hr style={{ width: '90%', opacity: 0.5,display: 'flex',marginTop:12}} />
           <Box sx={{ overflow: 'auto',}}>
             <List>
 
@@ -160,8 +177,8 @@ function ClippedDrawer() {
             </List>
           </Box>
           </Box>
-            <footer style={{justifyContent: 'space-between',padding: 5,paddingRight: 6}}>
-                <hr style={{ width: '95%', opacity: 0.3 }} />
+            <footer style={{justifyContent: 'space-between',padding: 5,paddingRight: 6,backgroundColor: '#f3f3f3'}}>
+                <hr style={{ width: '95%', opacity: 0.5 }} />
                 <p style={{textDecoration: 'none',paddingLeft: 17,color:'#939393',fontSize: 13,fontWeight: 700,margin: 0}}>Made by <a style={{textDecoration: 'none',color:'#0f75bc',fontWeight: 700}} href='https://github.com/chamodraween' >Chamod Raween</a></p>
                 <p style={{textDecoration: 'none',paddingLeft: 17,color:'#656565',fontSize: 13,fontWeight: 700,margin: 0}}>© All rights reserved | Sri Lanka</p>
             </footer>

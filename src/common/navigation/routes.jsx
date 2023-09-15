@@ -25,7 +25,7 @@ const routes = [
         path: '/home',
         exact: true,
         component: <Home/>,
-        icon: <HomeIcon/>,
+        icon: <HomeIcon style={{ color: '#0f75bc',fontWeight: 700 }}/>,
 
     },
     {
@@ -36,7 +36,7 @@ const routes = [
         path: '/about',
         exact: true,
         component: <About/>,
-        icon: <InfoIcon/>,
+        icon: <InfoIcon style={{ color: '#0f75bc',fontWeight: 700 }}/>,
 
     },
     {
@@ -47,7 +47,7 @@ const routes = [
         path: '/contact',
         exact: true,
         component: <Contact/>,
-        icon: <ContactMailIcon/>,
+        icon: <ContactMailIcon style={{ color: '#0f75bc',fontWeight: 700 }}/>,
 
     },
     {
@@ -58,14 +58,14 @@ const routes = [
         path: '/terms',
         exact: true,
         component: <Terms/>,
-        icon: <PolicyIcon/>,
+        icon: <PolicyIcon style={{ color: '#0f75bc',fontWeight: 700 }}/>,
 
     },
     {
         key: 'login',
         path: '/login',
         exact: true,
-        component: <AdminLogin/>,
+        component: <AdminLogin style={{ color: '#0f75bc',fontWeight: 700 }}/>,
     },
     {
         name: (
@@ -75,7 +75,7 @@ const routes = [
         path: '/admin',
         exact: true,
         component: <Admin/>,
-        icon: <AdminPanelSettingsIcon/>,
+        icon: <AdminPanelSettingsIcon style={{ color: '#0f75bc',fontWeight: 700 }}/>,
         requiresAdmin: true, // Require admin authentication
     },
     {
@@ -86,7 +86,7 @@ const routes = [
         path: '/order',
         exact: true,
         component: <OrderPage/>,
-        icon: <StarBorderPurple500Icon/>,
+        icon: <StarBorderPurple500Icon style={{ color: '#0f75bc',fontWeight: 700 }}/>,
         requiresAdmin: true, // Require admin authentication
     }
 

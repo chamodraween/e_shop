@@ -5,7 +5,6 @@ function About() {
 
     return (
         <div>
-            <h2 style={{color:'#494949'}}>About Page</h2><br/>
             <div>
                 <header style={{ backgroundColor: '#333', color: '#fff', textAlign: 'center', padding: '20px' }}>
                     <h1>E Shop</h1>

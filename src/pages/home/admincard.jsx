@@ -11,6 +11,7 @@ import axios from 'axios';
 import "../../app/App.css"
 import {Edit} from "@mui/icons-material";
 import AspectRatio from "@mui/joy/AspectRatio";
+import AxiosInstance from "../../server/axiosInstance/axiosInstance.js";
 
 function AdminCard({ title, date, img, price, id, description, deletionDate, setRows, onEdit }) {
 
@@ -22,7 +23,7 @@ function AdminCard({ title, date, img, price, id, description, deletionDate, set
 
     const handleDelete = () => {
         axios
-            .delete(`http://192.168.8.100:8006/api/v1/card/${id}`)
+        AxiosInstance.delete(`/api/v1/card/${id}`)
             .then(function (response) {
                 // Update the deletionDate for the deleted row
                 setRows((prevRows) =>

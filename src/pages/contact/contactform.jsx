@@ -3,9 +3,12 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TableContainer from "@mui/material/TableContainer";
+import Alert from "@mui/material/Alert";
+import AxiosInstance from "../../server/axiosInstance/axiosInstance.js";
+
 
 function ContactForm() {
-    const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+    const [formData, setFormData] = useState({ name: '', iemail: '', message: '' });
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
@@ -13,15 +16,13 @@ function ContactForm() {
         e.preventDefault();
 
         try {
-            const response = await fetch('/api/send-email', {
-                method: 'POST',
+            const response = await AxiosInstance.post('/api/v1/email', formData, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData),
             });
 
-            if (response.ok) {
+            if (response.status === 200) {
                 setSuccessMessage('Email sent successfully.');
             } else {
                 setErrorMessage('Failed to send email.');
@@ -36,8 +37,16 @@ function ContactForm() {
         <div>
             <TableContainer>
             <Typography variant="h5">Contact Us</Typography>
-            {successMessage && <Typography className="success">{successMessage}</Typography>}
-            {errorMessage && <Typography className="error">{errorMessage}</Typography>}
+                {successMessage && (
+                    <Alert sx={{ marginY: 3}} severity="success" color="info">
+                        {successMessage}
+                    </Alert>
+                )}
+                {errorMessage && (
+                    <Alert sx={{ marginY: 3}} severity="success" color="info">
+                        {errorMessage}
+                    </Alert>
+                )}
             <form onSubmit={handleSubmit}>
                 <div>
                     <TextField
@@ -57,8 +66,8 @@ function ContactForm() {
                         label="Email"
                         type="email"
                         name="email"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        value={formData.iemail}
+                        onChange={(e) => setFormData({ ...formData, iemail: e.target.value })}
                         required
                         fullWidth
                     />
