@@ -22,7 +22,6 @@ function AdminCard({ title, date, img, price, id, description, deletionDate, set
     const totalPrice = itemPrice + shippingCost;
 
     const handleDelete = () => {
-        axios
         AxiosInstance.delete(`/api/v1/card/${id}`)
             .then(function (response) {
                 // Update the deletionDate for the deleted row

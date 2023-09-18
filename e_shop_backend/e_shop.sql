@@ -1,7 +1,7 @@
 -- MySQL dump 10.13  Distrib 8.1.0, for macos13 (arm64)
 --
 -- Host: localhost    Database: e_shop
--- ------------------------------------------------------
+-- -----------------------------------------------------
 -- Server version	8.1.0
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;

@@ -5,6 +5,7 @@ import axios from "axios";
 import Alert from '@mui/material/Alert';
 import {shippingCost} from "../../constants.js";
 import '../../app/App.css'
+import AxiosInstance from "../../server/axiosInstance/axiosInstance.js";
 
 
 function BuyerInfoForm({item}) {
@@ -18,8 +19,8 @@ function BuyerInfoForm({item}) {
 
     const postData = () => {
 
-        axios
-            .post('http://192.168.8.100:8006/api/v1/orders', {
+
+        AxiosInstance.post('/api/v1/orders', {
 
                 uname: uname,
                 email: email,
