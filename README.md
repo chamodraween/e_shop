@@ -1,8 +1,13 @@
-# React + Vite
+Here is my final rant about the APWD Course.
+React JS is used here.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project was completed by me for marketing Spices products.
 
-Currently, two official plugins are available:
+contents
+Admin Panel
+User Dashboard
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Here I have also given more attention to the security of the project.
+
+Admin Protection
+URL Protection
